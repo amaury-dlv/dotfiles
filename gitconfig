@@ -1,0 +1,19 @@
+[alias]
+	co = checkout
+	st = status
+	br = branch
+	adp = add --patch
+
+[color]
+	ui = on
+
+[user]
+	name = scarunkk
+	email = scarunkk@gmail.com
+
+[github]
+	user = scarunkk
+
+[interactive]
+	singlekey = true
+
