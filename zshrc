@@ -6,6 +6,7 @@ setopt hist_ignore_all_dups
 setopt hist_reduce_blanks
 setopt append_history
 setopt extended_history
+setopt inc_append_history
 
 #
 # ENV
@@ -18,8 +19,9 @@ export TERM=xterm-256color
 export MALLOC_CHECK_=3
 export PATH=$PATH:~/.rvm/bin/
 
-export HISTSIZE=10000000
-export HISTFILE=~/.zshistory
+export HISTSIZE=10000
+export SAVEHIST=10000
+export HISTFILE=~/.zshhistory
 
 #
 # ALIASES
