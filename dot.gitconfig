@@ -1,7 +1,7 @@
 [alias]
 	ci = commit
 	co = checkout
-	st = status
+	st = status -s
 	br = branch
 	adp = add --patch
 
@@ -9,14 +9,12 @@
 	ui = on
 	interactive = true
 
-
 [user]
-	name = scarunkk
-	email = scarunkk@gmail.com
+	name = Amaury de la Vieuville
+	email = amaury.dlv@gmail.com
 
 [github]
 	user = scarunkk
 
 [interactive]
 	singlekey = true
-

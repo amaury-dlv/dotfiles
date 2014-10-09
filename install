@@ -1,4 +1,0 @@
-#!/bin/sh
-cd `dirname $0`
-git submodule foreach git submodule update --init
-for i in *; do ln -s "`pwd`"/"$i" ../."$i"; done
