@@ -119,7 +119,7 @@ endif
 
 """ Fugitive
 " Print current branch in statusline
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+silent! set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 """ Tagbar
 nnoremap \\g :TagbarOpen<CR>
