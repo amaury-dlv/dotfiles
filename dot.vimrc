@@ -54,6 +54,7 @@ set showmatch       " show the matching bracket when inserting
 set matchtime=3     " tenths of second to show the matching bracket
 
 " General
+set modelines=5     " enable modeline on OSX
 set showcmd         " show command
 set showmode        " show current mode
 set timeoutlen=200  " (default 1000) time to wait when a part of a maped sequence is typped
