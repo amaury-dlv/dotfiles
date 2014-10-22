@@ -74,7 +74,7 @@ if [[ $UID != 0  ]]; then
 else
         C=%{$fg[red]%} # root
 fi
-PSYMB="%(!.${C}# ${S}.${C}  ${S})"
+PSYMB="%(!.${C}# ${S}.${C} $ ${S})"
 JPROMPT="${C}${S}"
 PROMPT="${PSYMB}"
 PPROMPT="${C}[${S}%~${C}]${S}"
