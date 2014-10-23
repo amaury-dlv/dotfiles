@@ -7,4 +7,5 @@ for file in dot.*; do
 done
 
 echo "Installing vim bundles"
+git submodule update --init --recursive
 vim +BundleInstall +qall
