@@ -135,3 +135,7 @@ let g:ctrlp_max_files = 0
 """ a.vim
 let g:alternateExtensions_cpp = "hh,h,hpp"
 let g:alternateExtensions_hh = "cpp,cc"
+
+""" clang_complete
+""" TODO: detect if libclang is present
+let g:clang_complete_loaded = 0
