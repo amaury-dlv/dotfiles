@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 for file in dot.*; do
   name=${file/dot/}
