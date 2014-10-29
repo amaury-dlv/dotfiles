@@ -18,3 +18,5 @@
 
 [interactive]
 	singlekey = true
+[push]
+	default = simple
