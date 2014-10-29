@@ -62,7 +62,7 @@ set laststatus=2    " set the status line always on
 set autowrite       " save before :next and :make
 set autoread        " watch for file changes by other programs
 set visualbell
-set shortmess=aoOtTI " use abbreviation when possible
+set shortmess=aoOtTAI " use abbreviation when possible
 set nocindent       " disable C indentation for regular files
 set smartindent     " enable smart indentation
 set nowrap          " do not split the line if it is too long
