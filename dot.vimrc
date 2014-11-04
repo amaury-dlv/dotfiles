@@ -21,6 +21,7 @@ Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
+Plugin 'scrooloose/syntastic'
 call vundle#end()
 """ End Vundle
 
