@@ -125,7 +125,7 @@ imap <C-K> <c-o>:pyf $HOME/.vim/bundle/clang-format/scripts/clang-format.py<cr>
 silent! set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 
 """ Tagbar
-nnoremap \\g :TagbarOpen<CR>
+nnoremap <leader>a :TagbarOpen<CR>
 
 """ CtrlP
 " , and ,m to open search
