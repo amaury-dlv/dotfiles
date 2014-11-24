@@ -12,7 +12,6 @@ set rtp+=~/.vim/bundle/colorschemes
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " required
 Plugin 'vim-scripts/a.vim'
-Plugin 'Rip-Rip/clang_complete'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-eunuch'
 Plugin 'tpope/vim-fugitive'
@@ -22,6 +21,7 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
+Plugin 'Valloric/YouCompleteMe'
 call vundle#end()
 """ End Vundle
 
@@ -141,6 +141,13 @@ let g:ctrlp_max_files = 0
 let g:alternateExtensions_cpp = "hh,h,hpp"
 let g:alternateExtensions_hh = "cpp,cc"
 
-""" clang_complete
-""" TODO: detect if libclang is present
-let g:clang_complete_loaded = 0
+""" Syntastic
+let g:syntastic_quiet_messages = { "type": "style" }
+
+""" YouCompleteMe
+nnoremap <leader>d :YcmDiags<CR>
+nnoremap <leader>s :YcmShowDetailedDiagnostic<CR>
+nnoremap <leader>g :YcmCompleter Goto<CR>
+let g:ycm_confirm_extra_conf = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:ycm_always_populate_location_list = 1
