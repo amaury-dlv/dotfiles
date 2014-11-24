@@ -119,6 +119,10 @@ endif
 """ Plugins Configuration """
 """""""""""""""""""""""""""""
 
+""" Clang-format
+map <C-K> :pyf $HOME/.vim/bundle/clang-format/scripts/clang-format.py<cr>
+imap <C-K> <c-o>:pyf $HOME/.vim/bundle/clang-format/scripts/clang-format.py<cr>
+
 """ Fugitive
 " Print current branch in statusline
 silent! set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
