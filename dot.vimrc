@@ -109,10 +109,7 @@ nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " Remap Caps Lock to ESC
-let hasMac = has('unix') && system("uname") == "Darwin\n"
-if has('unix') && !hasMac
-silent !whereis xmodmap && xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
-endif
+silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
 
 
 """""""""""""""""""""""""""""
