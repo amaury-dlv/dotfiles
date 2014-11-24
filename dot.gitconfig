@@ -1,9 +1,10 @@
 [alias]
 	ci = commit
 	co = checkout
-	st = status -s
+	st = status -sb
 	br = branch
 	adp = add --patch
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 
 [color]
 	ui = on
@@ -11,10 +12,10 @@
 
 [user]
 	name = Amaury de la Vieuville
-	email = amaury.dlv@gmail.com
+	email = amaury.delavieuville@numscale.com
 
 [github]
-	user = scarunkk
+	user = amaury-dlv
 
 [interactive]
 	singlekey = true
