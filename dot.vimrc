@@ -7,7 +7,6 @@ set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/c
 set rtp+=~/.vim/bundle/cpp
 set rtp+=~/.vim/bundle/llvm
-set rtp+=~/.vim/bundle/python
 set rtp+=~/.vim/bundle/colorschemes
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " required
@@ -22,6 +21,7 @@ Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'hynek/vim-python-pep8-indent'
 call vundle#end()
 """ End Vundle
 
