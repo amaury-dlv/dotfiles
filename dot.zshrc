@@ -90,6 +90,7 @@ compinit -i
 zstyle ':completion:*' completer _expand _complete _approximate
 zstyle ':completion:*' file-sort name
 zstyle ':completion:*' ignore-parents parent pwd
+zstyle ':completion:*:functions' ignored-patterns '_*'
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
 zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z} m:{a-zA-Z}={A-Za-z}' 'l:|=* r:|=*' 'r:|[._-]=* r:|=*'
