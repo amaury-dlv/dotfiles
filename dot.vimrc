@@ -71,7 +71,7 @@ set display=uhex    " show unprintable characters as <xx>
 set encoding=utf-8  " use a sane mutltibyte encoding
 set scrolloff=8     " keep at least 8 lines after the cusor when scrolling
 set wildmenu        " better command line completion menu
-set wildignore+=*.o,*.a,*.pyc,*.git,*.svn,*.sw*,*.d
+set wildignore+=*.o,*.a,*.pyc,*.git,*.svn,*.swp,*.swo,*.swn,*.d
 set tags=tags;/     " look in the parent directories for the ctags file
 
 
