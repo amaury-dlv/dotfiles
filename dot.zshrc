@@ -16,6 +16,7 @@ export LC_ALL=C
 export EDITOR=vim
 export PAGER=less
 export TERM=xterm-256color
+export LESS="-FRX"
 
 # History
 export HISTSIZE=10000
@@ -23,10 +24,9 @@ export SAVEHIST=10000
 export HISTFILE=~/.zshhistory
 
 # Path
-# use gnu tools on osx
-PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 export PATH="/opt/local/bin/:${PATH}"
 export PATH="${HOME}/bin/:${PATH}"
+export PATH="${HOME}/f/homebrew/bin/:${PATH}"
 export PATH="/usr/local/bin/:${PATH}"
 
 #
@@ -40,6 +40,9 @@ alias mv='mv -v'
 alias rm='rm -v'
 alias j='jobs'
 alias z='zlock -immed'
+alias p='pbpaste'
+alias c='pbcopy'
+
 
 #
 # BINDS
@@ -74,11 +77,8 @@ if [[ $UID != 0  ]]; then
 else
         C=%{$fg[red]%} # root
 fi
-PSYMB="%(!.${C}# ${S}.${C} $ ${S})"
-JPROMPT="${C}${S}"
-PROMPT="${PSYMB}"
-PPROMPT="${C}[${S}%~${C}]${S}"
-RPROMPT="${JPROMPT}${PPROMPT}"
+PROMPT="${C} $ ${S}"
+RPROMPT="${C}[${S}%~${C}]${S}"
 
 #
 # COMPLETION

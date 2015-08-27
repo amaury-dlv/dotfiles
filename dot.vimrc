@@ -20,7 +20,6 @@ Plugin 'majutsushi/tagbar'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-commentary'
 Plugin 'scrooloose/syntastic'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'hynek/vim-python-pep8-indent'
 call vundle#end()
 """ End Vundle
@@ -140,11 +139,3 @@ let g:alternateExtensions_hh = "cpp,cc"
 
 """ Syntastic
 let g:syntastic_quiet_messages = { "type": "style" }
-
-""" YouCompleteMe
-nnoremap <leader>d :YcmDiags<CR>
-nnoremap <leader>s :YcmShowDetailedDiagnostic<CR>
-nnoremap <leader>g :YcmCompleter Goto<CR>
-let g:ycm_confirm_extra_conf = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_always_populate_location_list = 1
