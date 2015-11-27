@@ -26,6 +26,7 @@ export HISTFILE=~/.zshhistory
 # Path
 export PATH="/opt/local/bin/:${PATH}"
 export PATH="${HOME}/bin/:${PATH}"
+export PATH="${HOME}/dotfiles/bin/:${PATH}"
 export PATH="${HOME}/f/homebrew/bin/:${PATH}"
 export PATH="/usr/local/bin/:${PATH}"
 
@@ -33,8 +34,8 @@ export PATH="/usr/local/bin/:${PATH}"
 # ALIASES
 #
 
-alias ls='ls -h --color=auto --group-directories-first'
-alias ll='ls -l --color=auto --group-directories-first'
+alias ls='gls -h --color=auto --group-directories-first'
+alias ll='gls -l --color=auto --group-directories-first'
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'

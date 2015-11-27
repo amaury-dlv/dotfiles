@@ -65,6 +65,7 @@ set visualbell
 set shortmess=aoOtTAI " use abbreviation when possible
 set nocindent       " disable C indentation for regular files
 set smartindent     " enable smart indentation
+set expandtab       " use spaces instead of tabs
 set nowrap          " do not split the line if it is too long
 set display=uhex    " show unprintable characters as <xx>
 set encoding=utf-8  " use a sane mutltibyte encoding
@@ -108,7 +109,7 @@ nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
 nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " Remap Caps Lock to ESC
-silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape"
+silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape" >/dev/null 2>&1
 
 
 """""""""""""""""""""""""""""
