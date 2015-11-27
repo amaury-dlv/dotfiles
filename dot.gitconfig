@@ -7,6 +7,15 @@
 	pr = pull --rebase
 	pn = push --no-verify
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        l = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+
+        fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+        ri = !sh -c 'git rebase -i --autosquash $(git origin-hash)^'
+        origin-hash = ! git log HEAD --not --remotes=origin --pretty=format:%h | tail -1
+        lg = ! tig --graph HEAD $(git current-remote-branch) --not HEAD@{1000}
+
+[rebase]
+        autoStash = true
 
 [color]
 	ui = on
