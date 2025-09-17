@@ -1,17 +1,4 @@
-#
-# OPTIONS
-#
-
-setopt hist_ignore_all_dups
-setopt hist_reduce_blanks
-setopt append_history
-setopt extended_history
-setopt inc_append_history
-
-#
-# ENV
-#
-
+# Env
 export LC_ALL=C
 export EDITOR=vim
 export PAGER=less
@@ -19,6 +6,11 @@ export TERM=xterm-256color
 export LESS="-FRX"
 
 # History
+setopt hist_ignore_all_dups
+setopt hist_reduce_blanks
+setopt append_history
+setopt extended_history
+setopt inc_append_history
 export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zshhistory
@@ -30,10 +22,7 @@ export PATH="${HOME}/dotfiles/bin/:${PATH}"
 export PATH="${HOME}/f/homebrew/bin/:${PATH}"
 export PATH="/usr/local/bin/:${PATH}"
 
-#
 # ALIASES
-#
-
 alias ls='gls -h --color=auto --group-directories-first'
 alias ll='gls -l --color=auto --group-directories-first'
 alias cp='cp -v'
@@ -65,10 +54,7 @@ autoload edit-command-line
 zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
-#
 # PROMPT
-#
-
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
@@ -81,10 +67,7 @@ fi
 PROMPT="${C} $ ${S}"
 RPROMPT="${C}[${S}%~${C}]${S}"
 
-#
 # COMPLETION
-#
-
 autoload -Uz compinit
 compinit -i
 
@@ -101,3 +84,7 @@ zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p
 zstyle ':completion:*:approximate:*' max-errors par 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 zstyle ':completion:*:expand:*' tag-order all-expansions
 zstyle ':completion:*:processes' command 'ps -au$USER' # kill completion
+
+# fzf
+source <(fzf --zsh)
+
