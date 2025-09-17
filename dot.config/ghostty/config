@@ -1,0 +1,13 @@
+theme = Brogrammer
+background = 000000
+foreground = ffffff
+split-divider-color = ffffff
+unfocused-split-fill = 505050
+unfocused-split-opacity = 0.6
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+keybind = global:cmd+alt+grave_accent=toggle_quick_terminal
+keybind = shift+enter=text:\n
+
+focus-follows-mouse = true
