@@ -1,28 +1,7 @@
-""""""""""""""""""""""""""
-""" Vundle Boilerplate """
-""""""""""""""""""""""""""
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/c
 set rtp+=~/.vim/bundle/cpp
 set rtp+=~/.vim/bundle/llvm
 set rtp+=~/.vim/bundle/colorschemes
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim' " required
-Plugin 'vim-scripts/a.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'ervandew/supertab'
-Plugin 'majutsushi/tagbar'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-commentary'
-Plugin 'scrooloose/syntastic'
-Plugin 'hynek/vim-python-pep8-indent'
-call vundle#end()
-""" End Vundle
 
 silent! colorscheme jellybeans
 
