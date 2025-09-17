@@ -36,10 +36,10 @@ set nocompatible
 
 set shell=zsh
 
+
 " Edition
 set backspace=indent,eol,start " backspace over everything
 set cpoptions+=ces$            " make the 'cw' and like commands put a $ at the end
-"set formatoptions+=j           " remove comment leader when joining lines
 
 " Search
 set hlsearch        " highlight last search matches
@@ -71,22 +71,13 @@ set display=uhex    " show unprintable characters as <xx>
 set encoding=utf-8  " use a sane mutltibyte encoding
 set scrolloff=8     " keep at least 8 lines after the cusor when scrolling
 set wildmenu        " better command line completion menu
+set cursorline      " highlight the current line
 set wildignore+=*.o,*.a,*.pyc,*.git,*.svn,*.swp,*.swo,*.swn,*.d
 set tags=tags;/     " look in the parent directories for the ctags file
-
 
 " Change cursor shape based on mode (iTerm2)
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Show trailing spaces
-highlight WhitespaceEOL ctermbg=DarkYellow guibg=DarkYellow
-" Whitespace at the end of a line. This suppresses whitespace that has just been typed.
-au BufWinEnter * let w:m1=matchadd('WhitespaceEOL', '\s\+$', -1)
-au InsertEnter * call matchdelete(w:m1)
-au InsertEnter * let w:m2=matchadd('WhitespaceEOL', '\s\+\%#\@<!$', -1)
-au InsertLeave * call matchdelete(w:m2)
-au InsertLeave * let w:m1=matchadd('WhitespaceEOL', '\s\+$', -1)
 
 " Fix moving around wrapped lines
 map j gj
@@ -110,33 +101,3 @@ nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " Remap Caps Lock to ESC
 silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape" >/dev/null 2>&1
-
-
-"""""""""""""""""""""""""""""
-""" Plugins Configuration """
-"""""""""""""""""""""""""""""
-
-""" Clang-format
-map <C-K> :pyf $HOME/.vim/bundle/clang-format/scripts/clang-format.py<cr>
-imap <C-K> <c-o>:pyf $HOME/.vim/bundle/clang-format/scripts/clang-format.py<cr>
-
-""" Fugitive
-" Print current branch in statusline
-silent! set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
-""" Tagbar
-nnoremap <leader>a :TagbarOpen<CR>
-
-""" CtrlP
-" , and ,m to open search
-nnoremap ,, :CtrlPCurWD<CR>
-nnoremap ,m :CtrlP<CR>
-let g:ctrlp_max_height = 50
-let g:ctrlp_max_files = 0
-
-""" a.vim
-let g:alternateExtensions_cpp = "hh,h,hpp"
-let g:alternateExtensions_hh = "cpp,cc"
-
-""" Syntastic
-let g:syntastic_quiet_messages = { "type": "style" }
