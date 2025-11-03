@@ -1,8 +1,6 @@
 # Env
-export LC_ALL=C
 export EDITOR=vim
 export PAGER=less
-export TERM=xterm-256color
 export LESS="-FRX"
 
 # History

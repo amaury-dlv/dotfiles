@@ -1,0 +1,9 @@
+\.git
+\.gitignore
+\.gitmodules
+install\.sh
+stow\.sh
+README.*
+\.DS_Store
+\.jj
+\.claude
