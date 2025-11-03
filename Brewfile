@@ -1,5 +1,5 @@
-brew "coreutils"
 brew "stow"
+brew "eza"
 brew "tree"
 
 brew "fd"

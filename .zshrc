@@ -21,8 +21,8 @@ export PATH="${HOME}/f/homebrew/bin/:${PATH}"
 export PATH="/usr/local/bin/:${PATH}"
 
 # ALIASES
-alias ls='gls -h --color=auto --group-directories-first'
-alias ll='gls -l --color=auto --group-directories-first'
+alias ls='eza --group-directories-first'
+alias ll='eza -l --group-directories-first'
 alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
