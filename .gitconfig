@@ -23,7 +23,14 @@
 
 [user]
 	name = Amaury de la Vieuville
-	email = adelavieuville@apple.com
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+	path = ~/.gitconfig-personal
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+	path = ~/.gitconfig-personal
+
+[includeIf "hasconfig:remote.*.url:**apple**"]
+	path = ~/.gitconfig-work
 
 [github]
 	user = amaury-dlv
