@@ -1,6 +1,4 @@
-#theme = Brogrammer
-#background = 000000
-#foreground = ffffff
+theme = "Monokai Remastered"
 split-divider-color = ffffff
 unfocused-split-fill = 505050
 unfocused-split-opacity = 0.6
@@ -8,8 +6,5 @@ cursor-style = block
 cursor-style-blink = false
 shell-integration-features = no-cursor
 keybind = shift+enter=text:\n
-
 focus-follows-mouse = true
-
-# Use Option key as Alt for terminal shortcuts like Alt+F, Alt+B
-macos-option-as-alt = true
+#macos-option-as-alt = true
