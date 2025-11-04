@@ -9,7 +9,7 @@ return {
   },
   {
     'olimorris/onedarkpro.nvim',
-    enabled = true,
+    enabled = false,
     priority = 1000,
     config = function()
       vim.cmd.colorscheme('onedark')
@@ -17,7 +17,7 @@ return {
   },
   {
     'catppuccin/nvim',
-    enabled = false,
+    enabled = true,
     name = 'catppuccin',
     priority = 1000,
     config = function()
