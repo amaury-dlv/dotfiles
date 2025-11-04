@@ -29,7 +29,7 @@ alias cp='cp -v'
 alias mv='mv -v'
 alias rm='rm -v'
 alias j='jobs'
-alias z='zlock -immed'
+#alias z='zlock -immed'
 alias p='pbpaste'
 alias c='pbcopy'
 
@@ -88,4 +88,8 @@ zstyle ':completion:*:processes' command 'ps -au$USER' # kill completion
 
 # fzf
 source <(fzf --zsh)
+
+# zoxide
+eval "$(zoxide init zsh)"
+
 
