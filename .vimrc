@@ -15,7 +15,6 @@ set nocompatible
 
 set shell=zsh
 
-
 " Edition
 set backspace=indent,eol,start " backspace over everything
 set cpoptions+=ces$            " make the 'cw' and like commands put a $ at the end
@@ -53,14 +52,17 @@ set wildmenu        " better command line completion menu
 set cursorline      " highlight the current line
 set wildignore+=*.o,*.a,*.pyc,*.git,*.svn,*.swp,*.swo,*.swn,*.d
 set tags=tags;/     " look in the parent directories for the ctags file
+set nospell         " disable spell checking
 
 " Change cursor shape based on mode (iTerm2)
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
-
-" Fix moving around wrapped lines
-map j gj
-map k gk
+ 
+ " Fix moving around wrapped lines
+if !has('nvim')
+  map j gj
+  map k gk
+endif
 
 map ,p :set paste!<CR>        " toggle paste mode
 map ,l :setlocal number!<CR>  " toggle line numbers
@@ -71,12 +73,6 @@ map <C-H> <C-W>h              " C-{H,J,K,L} to move around panes
 map <C-J> <C-W>j
 map <C-K> <C-W>k
 map <C-L> <C-W>l
-
-" Various mapping to set indent
-nmap \t :set expandtab tabstop=4 shiftwidth=4 softtabstop=4<CR>
-nmap \T :set expandtab tabstop=8 shiftwidth=8 softtabstop=4<CR>
-nmap \M :set noexpandtab tabstop=8 softtabstop=4 shiftwidth=4<CR>
-nmap \m :set expandtab tabstop=2 shiftwidth=2 softtabstop=2<CR>
 
 " Remap Caps Lock to ESC
 silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape" >/dev/null 2>&1
