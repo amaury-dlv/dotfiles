@@ -16,6 +16,7 @@ export HISTFILE=~/.zshhistory
 # Path
 export PATH="/opt/local/bin/:${PATH}"
 export PATH="$(npm config get prefix)/bin:${PATH}"
+export PATH="${HOME}/.local/bin/:${PATH}"
 export PATH="${HOME}/bin/:${PATH}"
 export PATH="${HOME}/dotfiles/bin/:${PATH}"
 export PATH="${HOME}/f/homebrew/bin/:${PATH}"
