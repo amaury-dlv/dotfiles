@@ -3,15 +3,16 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
+    lazy = false,
     build = ":TSUpdate",
-    opts = {
-      ensure_installed = { "swift", "c", "cpp", "lua", "python", "vim", "vimdoc", "markdown", "css", "html", "javascript", "typescript" },
-      auto_install = true,
-      highlight = { enable = true },
-      indent = { enable = true },
-    },
-    config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
+    config = function()
+      require("nvim-treesitter").setup({
+        install_dir = vim.fn.stdpath("data") .. "/site",
+      })
+      require("nvim-treesitter").install({
+        "swift", "c", "cpp", "lua", "python", "vim", "vimdoc",
+        "markdown", "markdown_inline", "css", "html", "javascript", "typescript",
+      })
     end,
   },
   {
@@ -19,7 +20,7 @@ return {
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     opts = {
       enable = true,
-      max_lines = 3, -- How many lines of context to show
+      max_lines = 3,
       min_window_height = 20,
     },
   },
