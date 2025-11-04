@@ -16,6 +16,8 @@ diff-instructions = false
 'interesting_branches()' = 'bases()..interesting()'
 'interesting_branches_short()' = 'interesting_branches() & (bases() | ancestors(interesting(), 3))'
 'current_branch()' = 'bases()..@'
+'recents2d' = 'committer_date(after:"2d ago")'
+'recents5h' = 'committer_date(after:"5h ago")'
 #'interesting_branches_short()' = 'interesting_branches() & ((bases() | ancestors(interesting(), 3)) | roots(interesting_branches()))'
 
 [signing]
