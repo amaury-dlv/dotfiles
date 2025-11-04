@@ -2,4 +2,4 @@
 
 DO USE jj. Do NOT use git when jj is available.
 
-When using jj diff, specify --git.
+- When using jj diff: specify --git.
