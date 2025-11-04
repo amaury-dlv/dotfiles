@@ -28,6 +28,14 @@ return {
       ensure_installed = vim.tbl_keys(servers),
     })
 
+    -- Disable semantic tokens globally
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        client.server_capabilities.semanticTokensProvider = nil
+      end,
+    })
+
     -- LSP attach function for keybindings
     vim.api.nvim_create_autocmd('LspAttach', {
       group = vim.api.nvim_create_augroup('lsp-attach', { clear = true }),
@@ -89,5 +97,34 @@ return {
     require('lspconfig').ty.setup({
       capabilities = capabilities,
     })
+
+    -- Manually configure sourcekit-lsp for Swift
+    vim.lsp.config('sourcekit', {
+      cmd = { 'sourcekit-lsp' },
+      filetypes = { 'swift' },
+      root_markers = {
+        '.git',
+        'compile_commands.json',
+        '.sourcekit-lsp',
+        'Package.swift',
+      },
+      capabilities = vim.tbl_deep_extend('force', capabilities, {
+        workspace = {
+          didChangeWatchedFiles = {
+            dynamicRegistration = true,
+          },
+        },
+        textDocument = {
+          diagnostic = {
+            dynamicRegistration = true,
+            relatedDocumentSupport = true,
+          },
+        },
+      }),
+    })
+
+    -- Enable sourcekit and clangd LSP
+    vim.lsp.enable('sourcekit')
+    vim.lsp.enable('clangd')
   end,
 }
