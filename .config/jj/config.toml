@@ -6,8 +6,9 @@ email = "adelavieuville@apple.com"
 
 [ui]
 #diff-formatter = ["difft", "--color=always", "$left", "$right"]
-diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+diff-editor = "meld-3"
 diff-instructions = false
+merge-editor = "meld"
 
 [revset-aliases]
 'bases()' = 'present(main@origin) | present(master@origin) | trunk()'
@@ -18,6 +19,7 @@ diff-instructions = false
 'current_branch()' = 'bases()..@'
 'recents2d' = 'committer_date(after:"2d ago")'
 'recents5h' = 'committer_date(after:"5h ago")'
+'log' = '@ | bases() | current_branch() | interesting() | interesting_branches_short()'
 #'interesting_branches_short()' = 'interesting_branches() & ((bases() | ancestors(interesting(), 3)) | roots(interesting_branches()))'
 
 [signing]
@@ -35,7 +37,7 @@ bookmarks = "green"
 
 [revsets]
 #log = '@ | bases()..(visible_heads() & mine() & committer_date(after:"3 weeks ago")) | tracked_remote_bookmarks() | bases()'
-log = '@ | bases() | current_branch() | interesting() | interesting_branches_short()'
+log = 'log'
 
 [aliases]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
