@@ -1,0 +1,43 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "Amaury de la Vieuville"
+email = "adelavieuville@apple.com"
+
+[ui]
+diff-formatter = ["difft", "--color=always", "$left", "$right"]
+
+[revset-aliases]
+'bases()' = 'present(main@origin) | present(master@origin) | trunk()'
+'unpushed()' = 'visible_heads() & mine() & ~remote_bookmarks()'
+'interesting()' = '@ | unpushed() | tracked_remote_bookmarks()'
+'interesting_branches()' = 'bases()..interesting()'
+'interesting_branches_short()' = 'interesting_branches() & (bases() | ancestors(interesting(), 3))'
+#'interesting_branches_short()' = 'interesting_branches() & ((bases() | ancestors(interesting(), 3)) | roots(interesting_branches()))'
+
+[signing]
+backend = "gpg"
+key = "Amaury de la Vieuville <adelavieuville@apple.com>"
+backends.gpg.program = "/usr/local/bin/ac-sign"
+
+[git]
+sign-on-push = true
+
+[colors]
+"diff removed token" = { underline = false }
+"diff added token" = { underline = false }
+bookmarks = "green"
+
+[revsets]
+#log = '@ | bases()..(visible_heads() & mine() & committer_date(after:"3 weeks ago")) | tracked_remote_bookmarks() | bases()'
+log = '@ | bases() | interesting() | interesting_branches_short()'
+
+[aliases]
+tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+
+[template-aliases]
+'format_short_change_id(id)' = 'id.shortest()'
+'format_timestamp(timestamp)' = "timestamp.ago()"
+'format_short_signature(signature)' = 'signature.email().local()'
+'in_branch(commit)' = 'commit.contained_in("immutable_heads()..bookmarks()")'
+
