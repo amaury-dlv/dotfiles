@@ -41,6 +41,7 @@ log = 'log'
 
 [aliases]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
+bdiff = ["util", "exec", "--", "bash", "-c", "jj diff --from \"fork_point(main|$1)\" --to \"$1\"", ""]
 
 [template-aliases]
 'format_short_change_id(id)' = 'id.shortest()'
