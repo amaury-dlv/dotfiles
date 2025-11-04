@@ -31,11 +31,12 @@ alias z='zlock -immed'
 alias p='pbpaste'
 alias c='pbcopy'
 
+alias q='cd ~/f/vfx'
+alias rb='git checkout -b amaury/PR-$(current_radar)'
+alias jl='jj log'
+alias jr='jj b set amaury/PR-$(current_radar)'
 
-#
 # BINDS
-#
-
 bindkey -e # emacs binds
 bindkey "\e[3~" delete-char # delete
 
