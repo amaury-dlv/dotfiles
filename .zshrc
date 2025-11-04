@@ -65,6 +65,7 @@ zle -N edit-command-line
 bindkey '\ee' edit-command-line
 
 # PROMPT
+setopt transientrprompt
 autoload -Uz colors && colors
 autoload -Uz promptinit && promptinit
 
@@ -74,7 +75,11 @@ if [[ $UID != 0  ]]; then
 else
         C=%{$fg[red]%} # root
 fi
-PROMPT="${C} $ ${S}"
+if [[ -n "$SSH_CONNECTION" ]]; then
+        PROMPT="${C}%m $ ${S}"
+else
+        PROMPT="${C} $ ${S}"
+fi
 RPROMPT="${C}[${S}%~${C}]${S}"
 
 # COMPLETION
