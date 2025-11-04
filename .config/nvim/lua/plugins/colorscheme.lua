@@ -1,7 +1,27 @@
 return {
-  'p00f/alabaster.nvim',
-  priority = 1000, -- Load colorscheme before other plugins
-  config = function()
-    vim.cmd.colorscheme('alabaster')
-  end,
+  {
+    'p00f/alabaster.nvim',
+    enabled = false,
+    priority = 1000, -- Load colorscheme before other plugins
+    config = function()
+      vim.cmd.colorscheme('alabaster')
+    end,
+  },
+  {
+    'olimorris/onedarkpro.nvim',
+    enabled = true,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme('onedark')
+    end,
+  },
+  {
+    'catppuccin/nvim',
+    enabled = false,
+    name = 'catppuccin',
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme('catppuccin')
+    end,
+  },
 }

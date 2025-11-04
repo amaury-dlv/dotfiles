@@ -9,7 +9,16 @@ return {
     explorer = { enabled = true },
     indent = { enabled = false },
     input = { enabled = true },
-    picker = { enabled = true },
+    picker = {
+      enabled = true,
+      win = {
+        input = {
+          keys = {
+            ["<M-.>"] = { "toggle_hidden", mode = { "n", "i" } },
+          },
+        },
+      },
+    },
     notifier = { enabled = true },
     quickfile = { enabled = true },
     scope = { enabled = true },
