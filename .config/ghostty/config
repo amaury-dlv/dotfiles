@@ -13,3 +13,5 @@ unfocused-split-opacity = 0.6
 
 cursor-style = block
 cursor-style-blink = false
+
+font-feature = -calt
