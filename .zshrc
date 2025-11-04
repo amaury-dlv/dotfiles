@@ -39,11 +39,13 @@ alias j='jobs'
 #alias z='zlock -immed'
 alias p='pbpaste'
 alias c='pbcopy'
+alias ent='codesign -d --entitlements -'
 
 alias q='cd ~/f/vfx'
 alias rb='git checkout -b amaury/PR-$(current_radar)'
 alias jl='jj log'
 alias jr='jj b set amaury/PR-$(current_radar)'
+alias claude='claude --dangerously-skip-permissions'
 
 # BINDS
 bindkey -e # emacs binds
