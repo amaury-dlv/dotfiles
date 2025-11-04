@@ -7,6 +7,7 @@ email = "adelavieuville@apple.com"
 [ui]
 #diff-formatter = ["difft", "--color=always", "$left", "$right"]
 diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
+diff-instructions = false
 
 [revset-aliases]
 'bases()' = 'present(main@origin) | present(master@origin) | trunk()'
@@ -19,7 +20,7 @@ diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 
 [signing]
 backend = "gpg"
-key = "Amaury de la Vieuville <adelavieuville@apple.com>"
+behavior = "drop"
 backends.gpg.program = "/usr/local/bin/ac-sign"
 
 [git]
