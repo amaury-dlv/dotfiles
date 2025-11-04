@@ -5,11 +5,12 @@ name = "Amaury de la Vieuville"
 email = "adelavieuville@apple.com"
 
 [ui]
-diff-formatter = ["difft", "--color=always", "$left", "$right"]
+#diff-formatter = ["difft", "--color=always", "$left", "$right"]
+diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 
 [revset-aliases]
 'bases()' = 'present(main@origin) | present(master@origin) | trunk()'
-'unpushed()' = 'visible_heads() & mine() & ~remote_bookmarks()'
+'unpushed()' = '(bookmarks() | (visible_heads() & mine())) & ~remote_bookmarks()'
 'interesting()' = '@ | unpushed() | tracked_remote_bookmarks()'
 'interesting_branches()' = 'bases()..interesting()'
 'interesting_branches_short()' = 'interesting_branches() & (bases() | ancestors(interesting(), 3))'
