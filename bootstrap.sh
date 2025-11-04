@@ -22,8 +22,7 @@ echo "📦 Installing Homebrew packages..."
 brew bundle install
 
 # Symlink dotfiles
-echo "🔗 Symlinking dotfiles..."
-stow -t $HOME/ . "$@"
+./stow.sh
 
 # Ask user if they want to configure macOS defaults
 echo ""
