@@ -6,9 +6,9 @@ email = "adelavieuville@apple.com"
 
 [ui]
 #diff-formatter = ["difft", "--color=always", "$left", "$right"]
-diff-editor = "meld-3"
-diff-instructions = false
-merge-editor = "meld"
+#diff-editor = "meld"
+#diff-instructions = true
+#merge-editor = "meld"
 
 [revset-aliases]
 'bases()' = 'present(main@origin) | present(master@origin) | trunk()'
