@@ -11,9 +11,11 @@ return {
     input = { enabled = true },
     picker = {
       enabled = true,
+      hidden = true,
       win = {
         input = {
           keys = {
+            -- ["<Esc>"] = { "close", mode = { "n", "i" } },
             ["<M-.>"] = { "toggle_hidden", mode = { "n", "i" } },
           },
         },
