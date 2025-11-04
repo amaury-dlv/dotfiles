@@ -18,3 +18,7 @@ cursor-style = block
 cursor-style-blink = false
 
 font-feature = -calt
+
+custom-shader = ./shaders/tft.glsl
+custom-shader = ./shaders/bettercrt.glsl
+custom-shader = ./shaders/bloom.glsl
