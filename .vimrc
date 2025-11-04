@@ -62,17 +62,16 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 if !has('nvim')
   map j gj
   map k gk
+  map ,p :set paste!<CR>        " toggle paste mode
+  map ,l :setlocal number!<CR>  " toggle line numbers
+  nmap ,c	:tabclose<CR>         " close tab
+  map L gt                      " next tab
+  map H gT                      " previous tab
+  map <C-H> <C-W>h              " C-{H,J,K,L} to move around panes
+  map <C-J> <C-W>j
+  map <C-K> <C-W>k
+  map <C-L> <C-W>l
 endif
-
-map ,p :set paste!<CR>        " toggle paste mode
-map ,l :setlocal number!<CR>  " toggle line numbers
-nmap ,c	:tabclose<CR>         " close tab
-map L gt                      " next tab
-map H gT                      " previous taba
-map <C-H> <C-W>h              " C-{H,J,K,L} to move around panes
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-L> <C-W>l
 
 " Remap Caps Lock to ESC
 silent !xmodmap -e "clear lock" -e "keycode 0x42 = Escape" >/dev/null 2>&1

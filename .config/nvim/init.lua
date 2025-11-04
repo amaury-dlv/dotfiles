@@ -32,6 +32,10 @@ vim.diagnostic.config({
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>") -- Clear search highlight
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" }) -- Show diagnostics
+vim.keymap.set("n", ",l", function() vim.o.number = not vim.o.number end, { desc = "Toggle line numbers" })
+vim.keymap.set("n", ",c", "<cmd>tabclose<CR>", { desc = "Close tab" })
+vim.keymap.set("n", "L", "gt", { desc = "Next tab" })
+vim.keymap.set("n", "H", "gT", { desc = "Previous tab" })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
