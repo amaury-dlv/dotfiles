@@ -2,6 +2,7 @@
 return {
   {
     "nvim-treesitter/nvim-treesitter",
+    branch = "main",
     build = ":TSUpdate",
     opts = {
       ensure_installed = { "swift", "c", "cpp", "lua", "python", "vim", "vimdoc", "markdown", "css", "html", "javascript", "typescript" },
