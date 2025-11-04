@@ -1,5 +1,5 @@
 # Env
-export EDITOR=vim
+export EDITOR=nvim
 export PAGER=less
 export LESS="-FRX"
 
