@@ -7,7 +7,11 @@ return {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     { "j-hui/fidget.nvim", opts = {} }, -- Useful status updates for LSP.
-    "saghen/blink.cmp", -- Allows extra capabilities provided by blink.cmp
+    {
+      "saghen/blink.cmp",
+      dependencies = { "saghen/blink.lib" },
+      build = function() require("blink.cmp").build():wait(60000) end,
+    },
   },
   config = function()
     -- LSP servers to install via Mason
