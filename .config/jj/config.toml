@@ -14,6 +14,7 @@ diff-editor = ["nvim", "-c", "DiffEditor $left $right $output"]
 'interesting()' = '@ | unpushed() | tracked_remote_bookmarks()'
 'interesting_branches()' = 'bases()..interesting()'
 'interesting_branches_short()' = 'interesting_branches() & (bases() | ancestors(interesting(), 3))'
+'current_branch()' = 'bases()..@'
 #'interesting_branches_short()' = 'interesting_branches() & ((bases() | ancestors(interesting(), 3)) | roots(interesting_branches()))'
 
 [signing]
@@ -31,7 +32,7 @@ bookmarks = "green"
 
 [revsets]
 #log = '@ | bases()..(visible_heads() & mine() & committer_date(after:"3 weeks ago")) | tracked_remote_bookmarks() | bases()'
-log = '@ | bases() | interesting() | interesting_branches_short()'
+log = '@ | bases() | current_branch() | interesting() | interesting_branches_short()'
 
 [aliases]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
