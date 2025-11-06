@@ -6,6 +6,7 @@ brew "fzf"
 brew "the_silver_searcher"
 brew "yazi"
 brew "imagemagick"
+brew "karabiner-elements"
 
 brew "tree-sitter-cli"
 brew "neovim"
