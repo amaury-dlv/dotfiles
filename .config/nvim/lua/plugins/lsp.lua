@@ -21,6 +21,7 @@ return {
           },
         },
       },
+      cssls = {},
     }
 
     -- Setup mason-tool-installer to auto-install servers
