@@ -12,10 +12,6 @@ vim.o.splitbelow=true         -- new vsplits open below
 vim.o.breakindent = true      -- Preserve indentation on line wrapping
 vim.o.undofile = true         -- Save undo history
 
-vim.schedule(function()           -- For options that increase startup time
-  vim.o.clipboard = 'unnamedplus' -- Sync clipboard with OS
-end)
-
 vim.opt.shortmess:append('WaoOtTAI') -- Use abbrevations when possible
 
 vim.diagnostic.config({
@@ -36,6 +32,10 @@ vim.keymap.set("n", ",l", function() vim.o.number = not vim.o.number end, { desc
 vim.keymap.set("n", ",c", "<cmd>tabclose<CR>", { desc = "Close tab" })
 vim.keymap.set("n", "L", "gt", { desc = "Next tab" })
 vim.keymap.set("n", "H", "gT", { desc = "Previous tab" })
+
+-- Yank to system clipboard (delete/change operations stay in vim registers)
+vim.keymap.set({"n", "v"}, "y", '"+y', { desc = "Yank to system clipboard" })
+vim.keymap.set("n", "Y", '"+Y', { desc = "Yank line to system clipboard" })
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
