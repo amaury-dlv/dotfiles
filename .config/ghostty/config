@@ -7,4 +7,4 @@ cursor-style-blink = false
 shell-integration-features = no-cursor
 keybind = shift+enter=text:\n
 focus-follows-mouse = true
-#macos-option-as-alt = true
+macos-option-as-alt = true
