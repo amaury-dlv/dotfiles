@@ -11,6 +11,8 @@ brew "the_silver_searcher"
 brew "tree-sitter-cli"
 brew "tree"
 brew "yazi"
+brew "zoxide"
+brew "npm"
 
 cask "claude-code"
 cask "claude"
