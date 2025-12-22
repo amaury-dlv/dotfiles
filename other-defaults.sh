@@ -29,6 +29,7 @@ defaults write $REX Workspace.interfaceStyle -string useTheme
 # Terminal
 defaults write $REX Workspace.terminalFontPointSize -float 13
 defaults write $REX Workspace.terminalCustomSchemeLinks -string open
+defaults write $REX Workspace.terminalOptionKeyBehavior -string actsAsAlt
 
 # Panes
 defaults write $REX Workspace.focusFollowsMouse -bool true
