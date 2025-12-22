@@ -11,6 +11,7 @@ vim.o.splitright=true         -- new hsplits open on the right
 vim.o.splitbelow=true         -- new vsplits open below
 vim.o.breakindent = true      -- Preserve indentation on line wrapping
 vim.o.undofile = true         -- Save undo history
+vim.o.wrap = true             -- Enable line wrapping
 
 vim.opt.shortmess:append('WaoOtTAI') -- Use abbrevations when possible
 
