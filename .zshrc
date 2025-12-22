@@ -13,6 +13,13 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 export HISTFILE=~/.zshhistory
 
+# Homebrew
+if [[ -f "/opt/homebrew/bin/brew" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f "/usr/local/bin/brew" ]]; then
+  eval "$(/usr/local/bin/brew shellenv)"
+fi
+
 # Path
 export PATH="/opt/local/bin/:${PATH}"
 export PATH="$(npm config get prefix)/bin:${PATH}"
