@@ -76,9 +76,9 @@ else
         C=%{$fg[red]%} # root
 fi
 if [[ -n "$SSH_CONNECTION" ]]; then
-        PROMPT="${C}%m $ ${S}"
+        PROMPT="%{$fg[cyan]%}%m ${C}$ ${S}"
 else
-        PROMPT="${C} $ ${S}"
+        PROMPT="${C}$ ${S}"
 fi
 RPROMPT="${C}[${S}%~${C}]${S}"
 
