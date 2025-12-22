@@ -5,6 +5,19 @@ vim.g.localmapleader = " "
 
 vim.g.have_nerd_font = true
 
+-- Use OSC 52 for clipboard (works over SSH)
+vim.g.clipboard = {
+  name = 'OSC 52',
+  copy = {
+    ['+'] = require('vim.ui.clipboard.osc52').copy('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').copy('*'),
+  },
+  paste = {
+    ['+'] = require('vim.ui.clipboard.osc52').paste('+'),
+    ['*'] = require('vim.ui.clipboard.osc52').paste('*'),
+  },
+}
+
 vim.o.mouse = "a"             -- Enable mouse mode
 vim.o.inccommand="split"      -- preview substitutions live
 vim.o.splitright=true         -- new hsplits open on the right
