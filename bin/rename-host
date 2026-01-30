@@ -1,0 +1,23 @@
+#!/bin/sh
+set -eu
+
+if [ $# -ne 1 ]; then
+  echo "usage: rename-host <name>" >&2
+  exit 1
+fi
+
+NAME="$1"
+LOCAL=$(printf '%s' "$NAME" | tr -cs 'A-Za-z0-9-' '-' | sed 's/^-*//; s/-*$//')
+
+if [ -z "$LOCAL" ]; then
+  echo "bad name" >&2
+  exit 1
+fi
+
+sudo scutil --set ComputerName "$NAME"
+sudo scutil --set LocalHostName "$LOCAL"
+sudo scutil --set HostName "$LOCAL"
+sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "$LOCAL"
+dscacheutil -flushcache
+
+echo "ok: $NAME ($LOCAL.local)"
