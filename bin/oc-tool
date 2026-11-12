@@ -1,0 +1,48 @@
+#!/bin/sh
+set -eu
+
+DATA="${XDG_DATA_HOME:-$HOME/.local/share}/opencode"
+STATE="${XDG_STATE_HOME:-$HOME/.local/state}/opencode"
+DB="$DATA/opencode.db"
+
+if pgrep -f '(^|/)opencode$' >/dev/null 2>&1; then
+  echo "busy" >&2
+  exit 1
+fi
+
+if [ ! -f "$DB" ]; then
+  echo "nothing to do" >&2
+  exit 0
+fi
+
+if ! command -v sqlite3 >/dev/null 2>&1; then
+  echo "missing sqlite3" >&2
+  exit 1
+fi
+
+opencode service stop >/dev/null 2>&1 || true
+
+T="session_v2 session_message session_part session_inbox instruction_entry instruction_blob instruction_state permission job event"
+n=0
+for t in $T; do
+  c=$(sqlite3 "$DB" "SELECT count(*) FROM $t;")
+  [ "$c" -gt 0 ] && echo "$t: $c"
+  n=$((n + c))
+done
+{
+  echo "PRAGMA foreign_keys = ON;"
+  for t in $T; do echo "DELETE FROM $t;"; done
+  echo "PRAGMA wal_checkpoint(TRUNCATE); VACUUM; PRAGMA wal_checkpoint(TRUNCATE);"
+} | sqlite3 "$DB" >/dev/null
+
+f=$(find "$STATE" -maxdepth 1 -name 'prompt-*.jsonl' 2>/dev/null | wc -l)
+f=$((f + $(find "$STATE/latest/tui" "$DATA/shell" -mindepth 1 2>/dev/null | wc -l)))
+rm -f "$STATE"/prompt-*.jsonl
+rm -rf "$STATE/latest/tui"
+mkdir -p "$STATE/latest/tui"
+printf '{"pinned":[]}\n' > "$STATE/session.json"
+
+rm -rf "$DATA/shell"/*
+: > "$DATA/log/opencode.log"
+
+echo "ok: $n rows, $f files"

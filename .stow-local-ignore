@@ -8,3 +8,4 @@ README.*
 \.jj
 \.claude
 .*\.sw.*
+^/bin
