@@ -1,3 +1,4 @@
 *.sw*
 *.netrwhist
 .DS_Store
+.config/jj/repos/
