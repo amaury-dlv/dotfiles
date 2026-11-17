@@ -11,4 +11,7 @@ mkdir -p $HOME/.claude/skills
 for skill in "$DOTFILES_DIR"/.claude-home/skills/*/; do
   ln -sfn "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
 done
-stow --no-folding -t $HOME/ . "$@"
+# Keep these real dirs so stow doesn't fold them into the repo: apps write
+# local state there (gh tokens, jj repos/, ...). Subdirs fold as usual.
+mkdir -p "$HOME/.config" "$HOME/.config/jj"
+stow -t $HOME/ . "$@"
