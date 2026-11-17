@@ -11,4 +11,4 @@ mkdir -p $HOME/.claude/skills
 for skill in "$DOTFILES_DIR"/.claude-home/skills/*/; do
   ln -sfn "${skill%/}" "$HOME/.claude/skills/$(basename "$skill")"
 done
-stow -t $HOME/ . "$@"
+stow --no-folding -t $HOME/ . "$@"
