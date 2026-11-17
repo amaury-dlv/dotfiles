@@ -107,3 +107,4 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 
+export CLAUDE_CODE_DISABLE_AUTO_MEMORY=1
