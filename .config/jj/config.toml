@@ -27,9 +27,6 @@ backend = "gpg"
 behavior = "drop"
 backends.gpg.program = "/usr/local/bin/ac-sign"
 
-[git]
-sign-on-push = true
-
 [colors]
 "diff removed token" = { underline = false }
 "diff added token" = { underline = false }
@@ -38,6 +35,7 @@ bookmarks = "green"
 [revsets]
 #log = '@ | bases()..(visible_heads() & mine() & committer_date(after:"3 weeks ago")) | tracked_remote_bookmarks() | bases()'
 log = 'log'
+git-sign-on-push = "~signed()"
 
 [aliases]
 tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "@-"]
