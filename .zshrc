@@ -1,3 +1,6 @@
+# No duplicate entries (dupes in fpath make compinit rebuild its cache)
+typeset -U path PATH fpath FPATH
+
 # Env
 export EDITOR=nvim
 export PAGER=less
