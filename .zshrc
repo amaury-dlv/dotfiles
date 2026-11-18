@@ -24,13 +24,16 @@ elif [[ -f "/usr/local/bin/brew" ]]; then
 fi
 
 # Path
-export PATH="/opt/local/bin/:${PATH}"
-export PATH="$(npm config get prefix)/bin:${PATH}"
-export PATH="${HOME}/.local/bin/:${PATH}"
-export PATH="${HOME}/bin/:${PATH}"
-export PATH="${${:-$HOME/.zshrc}:A:h}/bin:${PATH}"
-export PATH="${HOME}/f/homebrew/bin/:${PATH}"
-export PATH="/usr/local/bin/:${PATH}"
+path=(
+  ~/bin
+  ~/.local/bin
+  /opt/local/bin
+  /usr/local/bin
+  ~/f/homebrew/bin
+  ~/.npm-global/bin
+  ${${:-$HOME/.zshrc}:A:h}/bin
+  $path
+)
 
 # ALIASES
 alias ls='eza --group-directories-first'
