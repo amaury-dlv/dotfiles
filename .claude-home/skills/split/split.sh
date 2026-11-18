@@ -20,14 +20,16 @@ case "$first" in right|left|above|below|tab)
 esac
 text="${text%"${text##*[![:space:]]}"}"   # trim trailing whitespace
 
-cmd=(claude --dangerously-skip-permissions --resume "$sid" --fork-session)
+# An interactive zsh reads .zshrc, so claude gets its PATH and alias.
+# Positional args after "zsh" become "$@": the session id, then the message.
+cmd=(zsh -ic 'claude --resume "$@"' zsh "$sid" --fork-session)
 [[ -n "$text" ]] && cmd+=("$text")
 
 if [[ "$dir" == tab ]]; then
-  rex run -s "$REX_SESSION" -c "$PWD" -- "${cmd[@]}" >/dev/null
+  rex run -s "$REX_SESSION" -c "$PWD" --shell=none -- "${cmd[@]}" >/dev/null
 else
   rex split -s "$REX_SESSION" ${REX_BLOCK:+-b "$REX_BLOCK"} --split="$dir" \
-    --label fork -c "$PWD" -- "${cmd[@]}" >/dev/null
+    --label fork -c "$PWD" --shell=none -- "${cmd[@]}" >/dev/null
 fi
 where=$([[ $dir == tab ]] && echo "tab" || echo "pane ($dir)")
 echo "Forked session $sid into a new Rex $where${text:+ with message: $text}"
